@@ -4,6 +4,7 @@ A cross-platform chat application built with PyQt5 supporting both TCP and UDP p
 
 <div align="center">
     <img src="https://i.ibb.co/Z1J7SXwK/client-icon.png" alt="Logo" width="200" height="200">
+    <img src="https://i.ibb.co/Y7K28Cb8/server-icon.png" alt="Logo" width="200" height="200">
 </div>
 
 <div align="center">
@@ -59,12 +60,6 @@ pip install -r requirements.txt
 ```
 
 Alternatively, you can download pre-compiled executable files from the [Releases](https://github.com/medovanx/chatter_wave/releases) page.
-
-### Quick Install via Pip
-
-```bash
-pip install chatter-wave
-```
 
 ## Usage
 
