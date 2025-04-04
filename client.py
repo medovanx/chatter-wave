@@ -202,7 +202,6 @@ class ChatWindow(BaseClass, FormClass):
             return
 
         if self.client.send_message(message):
-            # Display in our own chat immediately (optimistic UI)
             self.add_message_to_public_chat(
                 self.client.username, message, is_self=True)
             self.publicMessageInput.clear()
@@ -222,7 +221,7 @@ class ChatWindow(BaseClass, FormClass):
                 return
 
             if self.client.send_message(message, recipient):
-                # Display in our own chat immediately (optimistic UI)
+                # Display in our own chat
                 tab.add_message(self.client.username, message,
                                 is_private=True, is_self=True)
                 tab.message_input.clear()
@@ -388,7 +387,7 @@ class ChatWindow(BaseClass, FormClass):
         elif message_type == 'private_sent':
             # Confirmation of private message sent
             # We don't need to display anything here since we already
-            # displayed the message optimistically when sending
+            # displayed the message when sending
             pass
 
         elif message_type == 'server':
@@ -402,7 +401,7 @@ class ChatWindow(BaseClass, FormClass):
             QMessageBox.warning(self, "Server Error", message)
 
         elif message_type == 'legacy':
-            # Legacy plain text message (backwards compatibility)
+            # Legacy plain text message (backwards compatibility), for DECODE ERROS
             message = data.get('message', '')
 
             # Try to parse SERVER: prefix

@@ -22,12 +22,10 @@ class ChatClient:
                 self.socket.connect((self.host, self.port))
                 self.connected = True
 
-                # Send username
                 self.socket.send(json.dumps({
                     "username": self.username
                 }).encode('utf-8'))
 
-                # Start listener
                 threading.Thread(target=self.receive_tcp, daemon=True).start()
 
             elif self.protocol == "UDP":
@@ -58,7 +56,7 @@ class ChatClient:
             try:
                 if self.protocol == "TCP":
                     self.socket.close()
-                # For UDP, just stop sending heartbeats and the server will remove us
+                # For UDP, just stop sending heartbeats
             except:
                 pass
 
@@ -122,7 +120,6 @@ class ChatClient:
             self.signal_handler.message_received.emit(data)
 
         except json.JSONDecodeError:
-            # Legacy plain text message
             self.signal_handler.message_received.emit({
                 "type": "legacy",
                 "message": data_str
@@ -157,7 +154,7 @@ class ChatClient:
                 self.process_message(message)
 
             except socket.timeout:
-                # Timeout is expected - just loop and check if we should still be connected
+                # Timeout
                 continue
             except Exception as e:
                 if self.connected:  # Only show error if we're supposed to be connected
