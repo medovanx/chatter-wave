@@ -44,6 +44,12 @@ A cross-platform chat application built with PyQt5 supporting both TCP and UDP p
 - **Message Routing**: Intelligent message delivery
 - **Heartbeat Mechanism**: Connection maintenance for UDP clients
 
+## Screenshots
+
+![Application Main Window](https://i.imgur.com/9QNOrLJ.png)
+
+![Private Chat Tab](https://i.imgur.com/z8UdvLu.png)
+
 ## Installation
 
 ### Prerequisites
@@ -106,9 +112,3 @@ JSON-formatted messages:
   "users": ["user1", "user2", "..."]
 }
 ```
-
-## Screenshots
-
-![Application Main Window](https://i.imgur.com/9QNOrLJ.png)
-
-![Private Chat Tab](https://i.imgur.com/z8UdvLu.png)
